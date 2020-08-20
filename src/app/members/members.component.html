@@ -1,0 +1,43 @@
+<div class="container-fluid">
+  <button id="addMemberButton" class="btn btn-primary pull-right" (click)="goToAddMemberForm()">Add Member</button>
+  <div *ngIf="show">
+    <form action="/action_page.php">
+      <label for="mId">Member Id :</label><br>
+      <input type="text" id="mId" name="mId" value="" [(ngModel)]="mId"><br>
+      <label for="fname">First name:</label><br>
+      <input type="text" id="fname" name="fname" value=""[(ngModel)]="fname"><br>
+      <label for="lname">Last name:</label><br>
+      <input type="text" id="lname" name="lname" value="" [(ngModel)]="lname"><br><br>
+      <label for="lname"> Job Title:</label><br>
+      <input type="text" id="jTitle" name="jTitle" value="" [(ngModel)]="jTitle"><br>
+      <label for="lname">Racing Team :</label><br>
+      <input type="text" id="rTeam" name="rTeam" value=""  [(ngModel)]="rTeam"><br>
+      <label for="lname">Status:</label><br>
+      <input type="text" id="status" name="status" value=""  [(ngModel)]="status"><br>
+      <input type="submit" value="Submit" (click)="submitMember()"><br><br>
+     </form> 
+    
+  </div>
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Member ID</th>
+        <th>First Name</th>
+        <th>Last Name</th>
+        <th>Job Title</th>
+        <th>Racing Team</th>
+        <th>Status</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor='let member of members'>
+        <td>{{member?.id}}</td>
+        <td>{{member?.firstName}}</td>
+        <td>{{member?.lastName}}</td>
+        <td>{{member?.jobTitle}}</td>
+        <td>{{member?.team}}</td>
+        <td>{{member?.status}}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
